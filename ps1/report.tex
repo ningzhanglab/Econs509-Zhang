@@ -1,0 +1,230 @@
+% Fill in \reportauthor before submission.
+% Keep the first-person verification statements only if you personally performed those checks.
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage[section]{placeins}
+\usepackage{microtype}
+\usepackage[hidelinks]{hyperref}
+
+\newcommand{\reportauthor}{} % Enter your name.
+\newsavebox{\resultbox}
+\newcommand{\resulttable}[3]{%
+  \begin{table}[htbp]\centering
+  \caption{#2}\label{#3}
+  \begingroup\small\setlength{\tabcolsep}{4pt}
+  \catcode`\^=12
+  \sbox{\resultbox}{\input{#1}}
+  \ifdim\wd\resultbox>\linewidth
+    \resizebox{\linewidth}{!}{\usebox{\resultbox}}
+  \else
+    \usebox{\resultbox}
+  \fi
+  \endgroup
+  \end{table}}
+\newcommand{\resultfigure}[4][0.90]{%
+  \begin{figure}[htbp]\centering
+  \includegraphics[width=#1\textwidth]{#2}
+  \caption{#3}\label{#4}
+  \end{figure}}
+
+\title{Homework 1: Discrete State Dynamic Programming}
+\author{\reportauthor}
+\date{ECONS 509, Fall 2026}
+
+\begin{document}
+\maketitle
+
+\section{Overview}
+
+I solve the two-state Huggett household problem at the fixed prices implied by
+$K^0=5$. The final numerical specification uses modified Howard improvement,
+sparse CSR power iteration, an exp-log asset grid on $[0,5]$, and $N=5000$.
+The Bellman formulation and Euler derivation are given in
+\texttt{manual/derivation.pdf}; generated tables and figures are included from
+\texttt{results/}.
+
+\section{Solver Comparison: Part (a)}
+
+The baseline uses a uniform $[0,20]$ grid with $N=1000$ and zero initial values.
+Convergence requires
+\[
+ d(x)=\max_m\frac{|T(x)_m-x_m|}{|x_m|+1}\leq10^{-8}.
+\]
+Pass counts include the terminating check, and solver times exclude the common
+utility-matrix construction.
+
+\resulttable{results/part_a_solvers.tex}
+{Baseline solver comparison, $N=1000$ on $[0,20]$.}
+{tab:solvers}
+
+VFI, Howard, and modified Howard converge to identical policies in 379, 15,
+and 19 passes. Modified Howard is the fastest converged method at 0.055136
+seconds, so I select it. The contraction benchmark
+$\log(10^{-8})/\log(0.96)=451.244$ is larger than the observed VFI count because
+it is a contraction-based error-reduction benchmark, not the exact stopping
+count for the relative Bellman metric.
+
+\resulttable{results/part_a_theory_diagnostics.tex}
+{Contraction and conditioning diagnostics, $J=I-\beta Q_G$.}
+{tab:conditioning}
+
+The fixed gradient step $\eta=0.0005$ was preregistered as a conservative choice:
+at the baseline size, the bound on $\|I-\beta Q\|_2^2$ is below 2000, so the step
+uses the corresponding inverse scale. Fixed-step gradient descent and Adam both
+hit the 20,000-pass cap and remain unconverged. The requested benchmark
+$(1-\beta)^{-2}=625$ is reported separately from the measured Euclidean
+condition numbers. In this problem, the measured $\operatorname{cond}_2(J^TJ)$
+is much larger, so 625 should not be read as the measured 2-norm condition
+number of this nonnormal Jacobian.
+
+\section{Invariant Distribution: Parts (b)--(d)}
+
+Using the converged Howard policy, I compare power iteration, the eigenvector
+method, and direct solution of $Q_G^T\pi=\pi$ with both dense and CSR
+representations.
+
+\resulttable{results/parts_bc_distributions.tex}
+{Invariant-distribution methods for the common Howard policy.}
+{tab:distributions}
+\resulttable{results/parts_bc_agreement.tex}
+{Sup-norm agreement among invariant distributions.}
+{tab:agreement}
+
+All six solutions pass the registered checks, with maximum disagreement about
+$5.49\times10^{-12}$. Sparse power iteration is the fastest measured sparse
+method at 0.003668 seconds, so I select power iteration with CSR for the
+remaining experiments.
+
+\section{Asset Range: Part (e)}
+
+At $N=1000$, I test uniform grids with $k_{\max}=1,2,5,10,20,40$.
+
+\resulttable{results/part_e_ranges.tex}
+{Uniform asset-range comparison at $N=1000$.}
+{tab:ranges}
+
+The ranges ending at 1 and 2 are rejected because they place positive mass at
+the top node. I select $k_{\max}=5$, the smallest tested range with zero top-node
+mass and an upper support endpoint well below the grid boundary.
+
+\section{Grid Construction: Part (f)}
+
+At $N=1000$ on $[0,5]$, I compare the uniform grid with
+\[
+ k_n=\exp\!\left[\frac{n-1}{N-1}\log(1+k_{\max})\right]-1.
+\]
+
+\resulttable{results/part_f_grids.tex}
+{Uniform and exp-log grids, $N=1000$ on $[0,5]$.}
+{tab:grids}
+
+Both grids pass all applicable checks. I select the exp-log grid because it has
+lower mean and distribution-weighted Euler errors, although its unweighted
+maximum residual is slightly higher.
+
+\resultfigure[0.82]{results/stage4/f/part_f_euler_comparison.pdf}
+{Euler-residual comparison for the uniform and exp-log grids.}
+{fig:grid-euler}
+
+\section{Grid Size: Part (g)}
+
+I compare $N=100,500,1000,2000,5000$ under the selected configuration.
+
+\resulttable{results/part_g_nodes.tex}
+{Grid-size comparison on the exp-log $[0,5]$ grid.}
+{tab:nodes}
+
+All five solutions converge in 19 passes. Euler errors fall steadily as $N$
+increases, while the $N=5000$ run remains computationally modest at about
+1.95 seconds. I therefore select $N=5000$ because it gives the lowest tested
+Euler errors at an acceptable runtime.
+
+\resultfigure[0.72]{results/stage4/g/part_g_policies.pdf}
+{Asset policies across grid sizes.}
+{fig:policies}
+\resultfigure[0.72]{results/stage4/g/part_g_joint_masses.pdf}
+{Joint invariant probability masses across grid sizes.}
+{fig:masses}
+\FloatBarrier
+
+\section{Euler Accuracy: Part (h)}
+
+For slack borrowing states, the consumption-equivalent residual is
+\[
+ c^{EE}_{n,s}=\left[\beta(1+r^0)\sum_{s'}P_{ss'}
+ (c^{\mathrm{next}}_{n,s,s'})^{-\sigma}\right]^{-1/\sigma},
+ \qquad
+ E_{n,s}=\left|1-\frac{c^{EE}_{n,s}}{c_{n,s}}\right|.
+\]
+The weighted statistics use probabilities normalized over the slack-state set.
+
+\resulttable{results/part_h_accuracy.tex}
+{Euler residuals at the selected $N=5000$ grid.}
+{tab:accuracy}
+
+The final mean, maximum, and conditional weighted mean residuals are
+$2.23018\times10^{-4}$, $1.18456\times10^{-3}$, and
+$1.55907\times10^{-4}$. No selected policy chooses the upper grid bound.
+
+\resultfigure[0.82]{results/stage4/h/part_h_euler_residuals.pdf}
+{Euler residuals at the selected grid size.}
+{fig:final-errors}
+
+Across the five saved grid sizes, the fitted log-log slopes are 1.013287 for the
+mean error and 0.933748 for the maximum error.
+
+\resulttable{results/part_h_scaling.tex}
+{Log-log Euler-error scaling across five grids.}
+{tab:scaling}
+
+These slopes are close to one, which is consistent with approximately
+first-order error reduction over the tested grid resolutions.
+
+\resultfigure[0.82]{results/stage4/h/part_h_accuracy_scaling.pdf}
+{Mean and maximum Euler errors against the maximum grid step.}
+{fig:scaling}
+
+\paragraph{Final checks.}
+All nine selected-grid checks pass. The full Stage-4 evidence records 202 passed
+checks and two expected rejected trial ranges. The reproduction check matches
+330 saved arrays and 8,514 JSON numerical values with zero numerical difference;
+the capped gradient and Adam runs remain correctly labeled unconverged.
+
+\section{Independent Verification}
+
+\paragraph{Manual-kernel check.}
+On the $N=100$ uniform $[0,20]$ grid, both the manual and implementation VFI
+runs require 492 passes. The maximum value-function difference is
+$3.71\times10^{-9}$ and there are zero policy mismatches, satisfying the
+$10^{-8}$ comparison criterion.
+
+\paragraph{Final Euler check.}
+My verification entry in \texttt{log.md} records final Euler mean and maximum
+values of 0.000223018 and 0.001184556, matching the saved Stage-4 results to
+numerical precision.
+
+These checks are separate from the execution agent's automated Stage-3 and
+Stage-4 verification.
+
+\section{AI-Use Note}
+
+I used Codex (GPT-6; exact build unavailable) through a desktop/local-folder
+agent workflow to implement the production solvers and tests, run the numerical
+experiments, and generate the results, tables, figures, and reproduction
+evidence. I also used ChatGPT text chat to help draft and revise student-owned
+workflow files, later manual-kernel maintenance edits, and this report draft. I
+made the recorded runtime choices and reasons, reviewed the evidence, recorded
+the verification in \texttt{log.md}, and am responsible for the final report and
+Stage-5 commit. The report-check agent may correct only numbers, references, and
+typographical errors.
+
+\section{Conclusion}
+
+Modified Howard with CSR power iteration on the $N=5000$ exp-log $[0,5]$ grid
+passes the registered checks and yields small Euler residuals with approximately
+first-order scaling over the tested resolutions.
+
+\end{document}
