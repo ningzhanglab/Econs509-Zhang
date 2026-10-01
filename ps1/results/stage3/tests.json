@@ -1,0 +1,381 @@
+{
+  "stage": 3,
+  "status": "passed",
+  "settings": {
+    "beta": 0.96,
+    "sigma": 1.5,
+    "labor": 1.0,
+    "k_min": 0.0,
+    "z": 1.0,
+    "alpha": 0.36,
+    "delta": 0.1,
+    "K0": 5.0,
+    "efficiency": [
+      0.8,
+      1.2
+    ],
+    "P": [
+      [
+        0.5,
+        0.5
+      ],
+      [
+        0.5,
+        0.5
+      ]
+    ],
+    "shock_stationary": [
+      0.5,
+      0.5
+    ],
+    "seed": 0,
+    "N": 100,
+    "k_max": 20.0,
+    "grid_kind": "uniform",
+    "L": 1.0,
+    "w": 1.1423762763050482,
+    "r": 0.028517331084317893,
+    "utility_seconds": 0.0002899999963119626,
+    "dtype": "float64",
+    "stack_order": "F"
+  },
+  "checks": [
+    {
+      "test_id": 1,
+      "passed": true,
+      "value_difference": 3.707711471179209e-09,
+      "policy_mismatches": 0,
+      "agent_outer_passes": 492,
+      "manual_outer_passes": 492
+    },
+    {
+      "test_id": 2,
+      "passed": true,
+      "violation_count": 0,
+      "violations_lower_node_and_shock": []
+    },
+    {
+      "test_id": 3,
+      "passed": true,
+      "valid_policy_indices": true,
+      "minimum": 0.9139010210440386,
+      "minimum_state": [
+        0,
+        0
+      ],
+      "budget_difference": 0.0
+    },
+    {
+      "test_id": 4,
+      "passed": true,
+      "total": 1.0000000000000002,
+      "deviation": 2.220446049250313e-16,
+      "distribution": "dense_power"
+    },
+    {
+      "test_id": 4,
+      "passed": true,
+      "total": 1.0,
+      "deviation": 0.0,
+      "distribution": "dense_eigen"
+    },
+    {
+      "test_id": 4,
+      "passed": true,
+      "total": 1.0,
+      "deviation": 0.0,
+      "distribution": "dense_direct"
+    },
+    {
+      "test_id": 4,
+      "passed": true,
+      "total": 1.0000000000000002,
+      "deviation": 2.220446049250313e-16,
+      "distribution": "sparse_power"
+    },
+    {
+      "test_id": 4,
+      "passed": true,
+      "total": 1.0,
+      "deviation": 0.0,
+      "distribution": "sparse_eigen"
+    },
+    {
+      "test_id": 4,
+      "passed": true,
+      "total": 1.0,
+      "deviation": 0.0,
+      "distribution": "sparse_direct"
+    },
+    {
+      "test_id": 5,
+      "passed": true,
+      "raw_minimum": 0.0,
+      "correction_mass": -0.0,
+      "saved_minimum": 0.0,
+      "distribution": "dense_power"
+    },
+    {
+      "test_id": 5,
+      "passed": true,
+      "raw_minimum": -7.259730966115595e-27,
+      "correction_mass": 8.575557203724045e-26,
+      "saved_minimum": -0.0,
+      "distribution": "dense_eigen"
+    },
+    {
+      "test_id": 5,
+      "passed": true,
+      "raw_minimum": 0.0,
+      "correction_mass": -0.0,
+      "saved_minimum": 0.0,
+      "distribution": "dense_direct"
+    },
+    {
+      "test_id": 5,
+      "passed": true,
+      "raw_minimum": 0.0,
+      "correction_mass": -0.0,
+      "saved_minimum": 0.0,
+      "distribution": "sparse_power"
+    },
+    {
+      "test_id": 5,
+      "passed": true,
+      "raw_minimum": -1.451946193223119e-26,
+      "correction_mass": 5.283722943776006e-25,
+      "saved_minimum": -0.0,
+      "distribution": "sparse_eigen"
+    },
+    {
+      "test_id": 5,
+      "passed": true,
+      "raw_minimum": 0.0,
+      "correction_mass": -0.0,
+      "saved_minimum": 0.0,
+      "distribution": "sparse_direct"
+    },
+    {
+      "test_id": 6,
+      "passed": true,
+      "top_node_mass": 0.0
+    },
+    {
+      "test_id": 7,
+      "passed": true,
+      "shape": [
+        200,
+        200
+      ],
+      "policy_entry_error": 0.0,
+      "row_sum_error": 0.0,
+      "representation_error": 0.0
+    },
+    {
+      "test_id": 8,
+      "passed": true,
+      "stationarity_residual": 7.997769113643471e-13,
+      "shock_marginals": [
+        0.5000000000000001,
+        0.5000000000000001
+      ],
+      "shock_marginal_error": 1.1102230246251565e-16,
+      "distribution": "dense_power"
+    },
+    {
+      "test_id": 8,
+      "passed": true,
+      "stationarity_residual": 2.7755575615628914e-17,
+      "shock_marginals": [
+        0.5,
+        0.49999999999999994
+      ],
+      "shock_marginal_error": 5.551115123125783e-17,
+      "distribution": "dense_eigen"
+    },
+    {
+      "test_id": 8,
+      "passed": true,
+      "stationarity_residual": 2.7755575615628914e-17,
+      "shock_marginals": [
+        0.5,
+        0.5
+      ],
+      "shock_marginal_error": 0.0,
+      "distribution": "dense_direct"
+    },
+    {
+      "test_id": 8,
+      "passed": true,
+      "stationarity_residual": 7.997769113643471e-13,
+      "shock_marginals": [
+        0.5000000000000001,
+        0.5000000000000001
+      ],
+      "shock_marginal_error": 1.1102230246251565e-16,
+      "distribution": "sparse_power"
+    },
+    {
+      "test_id": 8,
+      "passed": true,
+      "stationarity_residual": 2.7755575615628914e-17,
+      "shock_marginals": [
+        0.5,
+        0.5
+      ],
+      "shock_marginal_error": 0.0,
+      "distribution": "sparse_eigen"
+    },
+    {
+      "test_id": 8,
+      "passed": true,
+      "stationarity_residual": 0.0,
+      "shock_marginals": [
+        0.5,
+        0.5
+      ],
+      "shock_marginal_error": 0.0,
+      "distribution": "sparse_direct"
+    },
+    {
+      "test_id": 8,
+      "passed": true,
+      "largest_pair": [
+        "dense_power",
+        "dense_direct"
+      ],
+      "maximum_difference": 5.274350400874539e-12
+    },
+    {
+      "test_id": 9,
+      "passed": true,
+      "operator_error": 0.0,
+      "tolerance": 1.9960902447396454e-12,
+      "policy_mismatches": 0
+    },
+    {
+      "test_id": 9,
+      "passed": true,
+      "method": "vfi",
+      "exit_metric": 9.721046027058214e-09,
+      "metric_difference": 0.0,
+      "outer_passes": 379,
+      "updates": 378,
+      "inner_steps": 0,
+      "converged": true
+    },
+    {
+      "test_id": 9,
+      "passed": true,
+      "method": "howard",
+      "exit_metric": 1.848623404469433e-16,
+      "metric_difference": 0.0,
+      "outer_passes": 18,
+      "updates": 17,
+      "inner_steps": 0,
+      "converged": true
+    },
+    {
+      "test_id": 9,
+      "passed": true,
+      "method": "modified_howard",
+      "exit_metric": 9.376596300344708e-09,
+      "metric_difference": 0.0,
+      "outer_passes": 19,
+      "updates": 18,
+      "inner_steps": 360,
+      "converged": true
+    },
+    {
+      "test_id": 9,
+      "passed": true,
+      "method": "kernel_vfi",
+      "exit_metric": 9.646338782592984e-11,
+      "metric_difference": 0.0,
+      "outer_passes": 492,
+      "updates": 491,
+      "inner_steps": 0,
+      "converged": true
+    },
+    {
+      "test_id": 10,
+      "passed": true,
+      "scalar_checks": [
+        {
+          "state": [
+            0,
+            0
+          ],
+          "residual": 0.1277240348479125,
+          "difference": 0.0
+        },
+        {
+          "state": [
+            50,
+            1
+          ],
+          "residual": 0.009213261752899493,
+          "difference": 0.0
+        },
+        {
+          "state": [
+            99,
+            0
+          ],
+          "residual": 0.01272917786697092,
+          "difference": 0.0
+        }
+      ],
+      "summary_differences": {
+        "maximum": 0.0,
+        "mean": 0.0,
+        "weighted_mean": 0.0,
+        "weighted_maximum": 0.0,
+        "supported_maximum": 0.0,
+        "slack_mass": 0.0,
+        "slack_count": 0.0,
+        "upper_choice_count": 0.0
+      },
+      "expected_statistics": {
+        "maximum": 0.15993577573368478,
+        "mean": 0.019692474225618015,
+        "weighted_mean": 0.03462573781741143,
+        "weighted_maximum": 0.006007236436047138,
+        "supported_maximum": 0.15993577573368478,
+        "slack_mass": 0.814814814823764,
+        "slack_count": 198,
+        "upper_choice_count": 0
+      }
+    }
+  ],
+  "transition_construction_seconds": 3.737500082934275e-05,
+  "transition_conversion_seconds": 0.0004954169999109581,
+  "distribution_statistics": {
+    "mean_assets": 0.48634493080686514,
+    "top_node_mass": 0.0,
+    "support_endpoint": 1.4141414141414141,
+    "support_share": 0.08,
+    "support_count": 8
+  },
+  "euler_statistics": {
+    "slack_count": 198,
+    "slack_mass": 0.814814814823764,
+    "upper_choice_count": 0,
+    "weighted_maximum_convention": "max_A(q*E), q=pi/sum_A(pi)",
+    "maximum": 0.15993577573368478,
+    "mean": 0.019692474225618015,
+    "weighted_mean": 0.03462573781741143,
+    "weighted_maximum": 0.006007236436047138,
+    "supported_maximum": 0.15993577573368478,
+    "unavailable_reasons": {}
+  },
+  "stage4": "pending",
+  "pending_checks": [
+    {
+      "test_id": 11,
+      "status": "pending",
+      "reason": "Stage-4 experiments and choices do not yet exist"
+    }
+  ],
+  "stop": "Await student's manual stage-3 commit confirmation"
+}
