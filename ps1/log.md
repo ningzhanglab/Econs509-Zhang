@@ -347,3 +347,30 @@ Selected `N = 5000` because it produced the lowest Euler errors among all tested
 
 - Agent: Codex, GPT-6; exact build unavailable. Prompt: `prompts/01_experiments.md`.
 - Correction to the preceding entry: only the initial layout run's rounded console time, **2.238107 seconds**, was retained. The extra digits quoted there for that superseded runtime are unverified and should not be used. The final saved runtime **1.891806917003123 seconds** is verified directly from `results/stage4/h/summary.json` and is the value used in the final summary and README. Numerical results, test outcomes, and reproduction evidence are unchanged; the manual-commit stop remains in force.
+
+
+
+
+
+## 2026-10-01 — Student independent verification
+
+Reran the manual-kernel comparison. Both implementations used 492 outer
+passes, the maximum value-function difference was about 3.71e-9, and there
+were 0 policy mismatches.
+
+Euler mean:                    0.0002230180690106603
+Euler maximum:                 0.001184556273525206
+Conditional weighted mean:     0.0001559071351970481
+Weighted maximum:              0.000006444445569254186
+Supported slack maximum:       0.0009660448115436093
+
+Slack-state mass:              0.9122560383323024
+Slack-state count:             9730
+Upper-bound choices:           0
+Mean assets:                   0.4511265352117719
+
+
+
+Also checked the final N=5000 Euler results. The Euler mean was
+0.000223018 and the maximum was 0.001184556, matching the saved results to
+numerical precision.
