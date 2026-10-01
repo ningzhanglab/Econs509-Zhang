@@ -1,0 +1,130 @@
+\documentclass[11pt]{article}
+\usepackage[margin=0.85in]{geometry}
+\usepackage{amsmath,amssymb,bm}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.45em}
+\newcommand{\Rmat}{\mathcal{R}}
+\newcommand{\Vmat}{\mathcal{V}}
+\newcommand{\Gmat}{\mathcal{G}}
+\newcommand{\Qmat}{\mathcal{Q}}
+\newcommand{\Pmat}{\mathcal{P}}
+
+\begin{document}
+\begin{center}
+{\large \textbf{Manual Derivation: Huggett Discrete-State Problem}}\\[2pt]
+ECONS 509 -- Problem Set 1
+\end{center}
+
+\textbf{Household problem.}
+For current assets $k$ and labor-efficiency state $s\in\{1,2\}$,
+\[
+v(k,s)=\max_{k'\ge \underline{k}}\left\{u(c)+\beta\sum_{s'=1}^{2}P_{ss'}v(k',s')\right\},
+\qquad
+c=(1+r^0)k+w^0\epsilon_s\bar l-k',
+\]
+where $u(c)=c^{1-\sigma}/(1-\sigma)$ and, in the discrete problem,
+$k'\in\mathcal K=\{k_1,\ldots,k_N\}$.  The prices are fixed at
+\[
+w^0=(1-\alpha)z^*\left(\frac{K^0}{L^*}\right)^\alpha,
+\qquad
+r^0=\alpha z^*\left(\frac{K^0}{L^*}\right)^{\alpha-1}-\delta,
+\]
+with $L^*=\sum_s\pi_s^*\epsilon_s\bar l$.
+
+\textbf{Discrete-state vector form.}
+Let $S=2$ and $M=NS$.  Store the value function as
+$\Vmat\in\mathbb R^{N\times S}$, with column $s$ equal to the values on the
+asset grid for shock $s$, and stack columns so that
+$m(n,s)=(s-1)N+n$.  Thus $\Vmat(:)\in\mathbb R^{M}$.
+For current joint state $m(n,s)$ and candidate next-asset index $j$, define
+\[
+c_{m j}=(1+r^0)k_n+w^0\epsilon_s\bar l-k_j,
+\qquad
+\Rmat_{m j}=\begin{cases}
+\dfrac{c_{m j}^{1-\sigma}}{1-\sigma},&c_{m j}>0,\\[5pt]
+-\infty,&c_{m j}\le0.
+\end{cases}
+\]
+Hence $\Rmat\in\mathbb R^{M\times N}$.  Since
+$\Pmat\Vmat^T\in\mathbb R^{S\times N}$, the Kronecker product
+$(\Pmat\Vmat^T)\otimes\mathbf 1_N$ is $M\times N$.  The Bellman equation is
+\[
+\boxed{\quad
+\Vmat(:)=\max_{j=1,\ldots,N}
+\left[\Rmat+\beta(\Pmat\Vmat^T)\otimes\mathbf 1_N\right],
+\quad}
+\]
+where the maximum is row by row.  The policy
+$\Gmat\in\{1,\ldots,N\}^{N\times S}$ stores the maximizing asset index,
+\[
+\Gmat_{ns}=\arg\max_j\left\{\Rmat_{m(n,s),j}
++\beta\sum_{s'}P_{ss'}\Vmat_{j s'}\right\}.
+\]
+Given $\Gmat$, define the policy transition matrix
+$\Qmat\in\mathbb R^{M\times M}$ by
+\[
+\Qmat_{m(n,s),m(j,s')}=
+\begin{cases}
+P_{ss'},&j=\Gmat_{ns},\\
+0,&\text{otherwise}.
+\end{cases}
+\]
+If $\Rmat^*\in\mathbb R^M$ collects flow utility at the chosen policy, fixed-policy
+evaluation satisfies
+\[
+\Vmat(:)=\Rmat^*+\beta\Qmat\Vmat(:),
+\qquad
+(I-\beta\Qmat)\Vmat(:)=\Rmat^*.
+\]
+
+\textbf{Continuous-choice Euler equation and borrowing constraint.}
+For the continuous-choice version, write the constraint as
+$k'-\underline{k}\ge0$ with multiplier $\lambda\ge0$.  Using the resource
+constraint to substitute for consumption, the Lagrangian is
+\[
+\mathcal L=u\!\left((1+r^0)k+w^0\epsilon_s\bar l-k'\right)
++\beta\sum_{s'}P_{ss'}v(k',s')+\lambda(k'-\underline{k}).
+\]
+The first-order condition for $k'$ and the envelope condition are
+\[
+-u'(c)+\beta\sum_{s'}P_{ss'}v_k(k',s')+\lambda=0,
+\qquad
+v_k(k,s)=(1+r^0)u'(c).
+\]
+Combining them gives the KKT Euler condition
+\[
+\boxed{\quad
+u'(c)=\beta(1+r^0)\sum_{s'}P_{ss'}u'(c'(s'))+\lambda,
+\quad}
+\]
+with
+\[
+\lambda\ge0,\qquad k'-\underline{k}\ge0,\qquad
+\lambda(k'-\underline{k})=0.
+\]
+For CRRA utility, $u'(c)=c^{-\sigma}$.  Therefore, whenever the borrowing
+constraint is slack ($k'>\underline{k}$), $\lambda=0$ and
+\[
+c^{-\sigma}=\beta(1+r^0)\sum_{s'}P_{ss'}\,[c'(s')]^{-\sigma}.
+\]
+
+\textbf{Euler residual used in the accuracy check.}
+Let the discrete policy be $g(k,s)$ and define policy consumption
+\[
+c_g(k,s)=(1+r^0)k+w^0\epsilon_s\bar l-g(k,s).
+\]
+At a slack state, put $k'=g(k,s)$ and, for each $s'$, let
+$k''=g(k',s')$ so that $c_g(k',s')$ is next-period consumption.  I use the
+consumption-equivalent relative Euler residual
+\[
+\boxed{\quad
+e(k,s)=1-
+\frac{\left[\beta(1+r^0)\sum_{s'}P_{ss'}c_g(k',s')^{-\sigma}\right]^{-1/\sigma}}
+{c_g(k,s)}.
+\quad}
+\]
+The continuous-choice Euler equation implies $e(k,s)=0$.  In Question 2(h) I
+report $|e(k,s)|$ only where $g(k,s)>\underline{k}$; binding states obey the
+KKT inequality rather than the Euler equality.
+
+\end{document}
