@@ -35,9 +35,9 @@ rows, shock = np.arange(N * S), np.repeat(np.arange(S), N)
 for sp in range(S):
     Q[rows, sp * N + g] = P[shock, sp]
 pi = np.ones(N * S) / (N * S)
-for pit in range(1, 1000001):
+for pit in range(1, 100001):
     pinew = Q.T @ pi
-    if np.max(np.abs(pinew - pi)) <= 1.0e-14:
+    if np.max(np.abs(pinew - pi)) <= 1.0e-12:
         break
     pi = pinew
 else:
