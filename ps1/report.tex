@@ -9,7 +9,7 @@
 \usepackage{microtype}
 \usepackage[hidelinks]{hyperref}
 
-\newcommand{\reportauthor}{} % Enter your name.
+\newcommand{\reportauthor}{Ning Zhang}
 \newsavebox{\resultbox}
 \newcommand{\resulttable}[3]{%
   \begin{table}[htbp]\centering
@@ -159,7 +159,22 @@ For slack borrowing states, the consumption-equivalent residual is
  \qquad
  E_{n,s}=\left|1-\frac{c^{EE}_{n,s}}{c_{n,s}}\right|.
 \]
-The weighted statistics use probabilities normalized over the slack-state set.
+For the slack-state set
+\[
+\mathcal A=\{(n,s):G(n,s)>0\},
+\qquad
+q_{n,s}=
+\frac{\pi_{n,s}}
+{\sum_{(i,j)\in\mathcal A}\pi_{i,j}}.
+\]
+The weighted maximum is
+\[
+\max_{(n,s)\in\mathcal A} q_{n,s}E_{n,s},
+\]
+while the supported slack maximum is
+\[
+\max_{\substack{(n,s)\in\mathcal A\\ \pi_{n,s}>10^{-12}}} E_{n,s}.
+\]
 
 \resulttable{results/part_h_accuracy.tex}
 {Euler residuals at the selected $N=5000$ grid.}
@@ -188,26 +203,28 @@ first-order error reduction over the tested grid resolutions.
 {fig:scaling}
 
 \paragraph{Final checks.}
-All nine selected-grid checks pass. The full Stage-4 evidence records 202 passed
-checks and two expected rejected trial ranges. The reproduction check matches
-330 saved arrays and 8,514 JSON numerical values with zero numerical difference;
-the capped gradient and Adam runs remain correctly labeled unconverged.
+All nine selected-grid checks pass. A total of 202 check records pass,
+including the 30 Stage-3 validation records, with two expected rejected trial
+ranges. The reproduction check matches 330 saved arrays and 8,514 JSON numerical
+values with zero numerical difference; the capped gradient and Adam runs remain
+correctly labeled unconverged.
 
 \section{Independent Verification}
 
 \paragraph{Manual-kernel check.}
-On the $N=100$ uniform $[0,20]$ grid, both the manual and implementation VFI
-runs require 492 passes. The maximum value-function difference is
-$3.71\times10^{-9}$ and there are zero policy mismatches, satisfying the
+On October 1, 2026, I independently reran the manual-kernel comparison on the
+$N=100$ uniform $[0,20]$ grid. Both the manual and implementation VFI runs
+required 492 passes. The maximum value-function difference was
+$3.71\times10^{-9}$ and there were zero policy mismatches, satisfying the
 $10^{-8}$ comparison criterion.
 
 \paragraph{Final Euler check.}
-My verification entry in \texttt{log.md} records final Euler mean and maximum
-values of 0.000223018 and 0.001184556, matching the saved Stage-4 results to
-numerical precision.
+On October 1, 2026, I also independently checked the final $N=5000$ Euler
+diagnostics. The mean and maximum residuals were 0.000223018 and 0.001184556,
+matching the saved Stage-4 results to numerical precision.
 
 These checks are separate from the execution agent's automated Stage-3 and
-Stage-4 verification.
+Stage-4 verification and are recorded in \texttt{log.md}.
 
 \section{AI-Use Note}
 
