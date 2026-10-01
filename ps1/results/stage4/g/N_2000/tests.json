@@ -1,0 +1,150 @@
+{
+  "status": "passed",
+  "checks": [
+    {
+      "test_id": 2,
+      "passed": true,
+      "violation_count": 0,
+      "violations_lower_node_and_shock": [],
+      "N": 2000,
+      "grid_kind": "exp_log",
+      "k_max": 5.0
+    },
+    {
+      "test_id": 3,
+      "passed": true,
+      "valid_policy_indices": true,
+      "minimum": 0.9139010210440386,
+      "minimum_state": [
+        0,
+        0
+      ],
+      "budget_difference": 0.0,
+      "N": 2000,
+      "grid_kind": "exp_log",
+      "k_max": 5.0
+    },
+    {
+      "test_id": 4,
+      "passed": true,
+      "total": 1.0,
+      "deviation": 0.0,
+      "N": 2000,
+      "grid_kind": "exp_log",
+      "k_max": 5.0
+    },
+    {
+      "test_id": 5,
+      "passed": true,
+      "raw_minimum": 0.0,
+      "correction_mass": -0.0,
+      "saved_minimum": 0.0,
+      "N": 2000,
+      "grid_kind": "exp_log",
+      "k_max": 5.0
+    },
+    {
+      "test_id": 6,
+      "passed": true,
+      "top_node_mass": 0.0,
+      "N": 2000,
+      "grid_kind": "exp_log",
+      "k_max": 5.0
+    },
+    {
+      "test_id": 7,
+      "passed": true,
+      "shape": [
+        4000,
+        4000
+      ],
+      "representation": "CSR",
+      "minimum_entry": 0.0,
+      "row_sum_error": 0.0,
+      "policy_entry_error": 0.0,
+      "N": 2000,
+      "grid_kind": "exp_log",
+      "k_max": 5.0
+    },
+    {
+      "test_id": 8,
+      "passed": true,
+      "stationarity_residual": 8.506112481043715e-13,
+      "shock_marginals": [
+        0.5,
+        0.5
+      ],
+      "shock_marginal_error": 0.0,
+      "N": 2000,
+      "grid_kind": "exp_log",
+      "k_max": 5.0
+    },
+    {
+      "test_id": 9,
+      "passed": true,
+      "method": "modified_howard",
+      "exit_metric": 8.079864774622565e-09,
+      "metric_difference": 0.0,
+      "outer_passes": 19,
+      "updates": 18,
+      "inner_steps": 360,
+      "converged": true,
+      "N": 2000,
+      "grid_kind": "exp_log",
+      "k_max": 5.0
+    },
+    {
+      "test_id": 10,
+      "passed": true,
+      "scalar_checks": [
+        {
+          "state": [
+            0,
+            0
+          ],
+          "residual": 0.11374961482846513,
+          "difference": 0.0
+        },
+        {
+          "state": [
+            50,
+            1
+          ],
+          "residual": 0.00073990265467061,
+          "difference": 0.0
+        },
+        {
+          "state": [
+            99,
+            0
+          ],
+          "residual": 0.008438253176570543,
+          "difference": 0.0
+        }
+      ],
+      "summary_differences": {
+        "maximum": 0.0,
+        "mean": 0.0,
+        "weighted_mean": 0.0,
+        "weighted_maximum": 0.0,
+        "supported_maximum": 0.0,
+        "slack_mass": 0.0,
+        "slack_count": 0.0,
+        "upper_choice_count": 0.0
+      },
+      "expected_statistics": {
+        "maximum": 0.002935337826616924,
+        "mean": 0.0005631824838786845,
+        "weighted_mean": 0.0003958724980816921,
+        "weighted_maximum": 1.7234970819515674e-05,
+        "supported_maximum": 0.001979193721552308,
+        "slack_mass": 0.9120354393287542,
+        "slack_count": 3891,
+        "upper_choice_count": 0
+      },
+      "N": 2000,
+      "grid_kind": "exp_log",
+      "k_max": 5.0
+    }
+  ]
+}

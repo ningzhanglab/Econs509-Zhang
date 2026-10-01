@@ -1,0 +1,71 @@
+{
+  "settings": {
+    "beta": 0.96,
+    "sigma": 1.5,
+    "labor": 1.0,
+    "k_min": 0.0,
+    "z": 1.0,
+    "alpha": 0.36,
+    "delta": 0.1,
+    "K0": 5.0,
+    "efficiency": [
+      0.8,
+      1.2
+    ],
+    "P": [
+      [
+        0.5,
+        0.5
+      ],
+      [
+        0.5,
+        0.5
+      ]
+    ],
+    "shock_stationary": [
+      0.5,
+      0.5
+    ],
+    "seed": 0,
+    "N": 1000,
+    "k_max": 5.0,
+    "grid_kind": "exp_log",
+    "L": 1.0,
+    "w": 1.1423762763050482,
+    "r": 0.028517331084317893,
+    "utility_seconds": 0.024104125004669186,
+    "dtype": "float64",
+    "stack_order": "F"
+  },
+  "method": "modified_howard",
+  "tolerance": 1e-08,
+  "outer_pass_cap": 10000,
+  "outer_passes": 19,
+  "updates": 18,
+  "inner_steps": 360,
+  "seconds": 0.053773207997437567,
+  "exit_metric": 8.08346665779717e-09,
+  "converged": true,
+  "status": "converged",
+  "modified_howard_steps_per_update": 20,
+  "gradient_step": 0.0005,
+  "adam_learning_rate": 0.1,
+  "adam_moment_decay": [
+    0.9,
+    0.999
+  ],
+  "adam_epsilon": 1e-08,
+  "initial_value": "zero",
+  "euler_statistics": {
+    "slack_count": 1945,
+    "slack_mass": 0.9119663469019424,
+    "upper_choice_count": 0,
+    "weighted_maximum_convention": "max_A(q*E), q=pi/sum_A(pi)",
+    "maximum": 0.0061242160442391835,
+    "mean": 0.001089122371106309,
+    "weighted_mean": 0.000804657018300087,
+    "weighted_maximum": 6.136024522151533e-05,
+    "supported_maximum": 0.004072190987686408,
+    "unavailable_reasons": {}
+  }
+}

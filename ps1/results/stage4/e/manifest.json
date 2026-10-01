@@ -1,0 +1,19 @@
+{
+  "code_sha256": "e9fb6fc820e26d1983afb430138e2d73a645e183608920661e8436063535f27d",
+  "selected_methods": {
+    "solver": "modified_howard",
+    "distribution_method": "power",
+    "representation": "sparse"
+  },
+  "ranges": [
+    1,
+    2,
+    5,
+    10,
+    20,
+    40
+  ],
+  "N": 1000,
+  "grid_kind": "uniform",
+  "status": "awaiting_range_choice"
+}

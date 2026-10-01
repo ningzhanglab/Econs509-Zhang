@@ -1,0 +1,18 @@
+{
+  "code_sha256": "17d2b28d2e4ac67292f9b1dbbc80b07da11e5e38ad9004a47535029f7bc40170",
+  "selected_methods": {
+    "solver": "modified_howard",
+    "distribution_method": "power",
+    "representation": "sparse"
+  },
+  "k_max": 5,
+  "grid_kind": "exp_log",
+  "node_counts": [
+    100,
+    500,
+    1000,
+    2000,
+    5000
+  ],
+  "status": "awaiting_N_choice"
+}

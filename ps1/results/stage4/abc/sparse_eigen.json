@@ -1,0 +1,20 @@
+{
+  "raw_minimum": -4.0315653078970437e-28,
+  "correction_mass": 2.0157826539485218e-26,
+  "raw_sum": -8.014689136886929,
+  "sum": 1.0,
+  "stationarity_residual": 1.3877787807814457e-17,
+  "shock_marginals": [
+    0.5,
+    0.5
+  ],
+  "eigenvalue_real": 1.0,
+  "eigenvalue_imaginary": 0.0,
+  "eigenvalue_distance": 0.0,
+  "eigenvector_imaginary_maximum": 0.0,
+  "shift": 0.9999999999,
+  "tolerance": 1e-12,
+  "maxiter": 100000,
+  "method": "eigen",
+  "seconds": 0.005532417002541479
+}

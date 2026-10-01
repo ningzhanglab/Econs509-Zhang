@@ -102,6 +102,44 @@ def transition(model, G, dense, sparse):
                    row_sum_error=row_error, representation_error=representation_error)
 
 
+def transition_selected(model, G, Q):
+    """Test 7 on only the selected representation; construct no companion matrix."""
+    from scipy import sparse
+    shape_valid = Q.shape == (model.M, model.M)
+    if not shape_valid:
+        return outcome(7, False, shape=list(Q.shape))
+    is_sparse = sparse.issparse(Q)
+    stored = Q.data if is_sparse else Q
+    minimum = min(0.0, float(np.min(stored))) if np.size(stored) else 0.0
+    row_error = float(np.max(np.abs(np.asarray(Q.sum(axis=1)).ravel() - 1)))
+    entry_error = 0.0
+    for s in range(2):
+        for n in range(model.N):
+            row = s * model.N + n
+            expected = {sp * model.N + int(G[n, s]): model.P[s, sp] for sp in range(2)}
+            if is_sparse:
+                start, end = Q.indptr[row:row + 2]
+                actual = {}
+                for col, probability in zip(Q.indices[start:end], Q.data[start:end]):
+                    actual[int(col)] = actual.get(int(col), 0.0) + float(probability)
+            else:
+                actual = {int(col): float(Q[row, col]) for col in np.flatnonzero(Q[row])}
+            for col in set(actual) | set(expected):
+                entry_error = max(entry_error, abs(actual.get(col, 0.0) - expected.get(col, 0.0)))
+    return outcome(7, minimum >= 0 and row_error <= 1e-12 and entry_error <= 1e-12,
+                   shape=list(Q.shape), representation="CSR" if is_sparse else "dense",
+                   minimum_entry=minimum, row_sum_error=row_error, policy_entry_error=entry_error)
+
+
+def range_top_mass(pi, N):
+    """Test 6 rejects truncated trial ranges; accepted-grid failures remain binding."""
+    mass = float(pi.reshape((N, 2), order="F")[-1].sum())
+    eligible = mass <= 1e-12
+    return {"test_id": 6, "passed": bool(eligible), "top_node_mass": mass,
+            "range_status": "eligible" if eligible else "rejected_truncated",
+            "expected_trial_rejection": not bool(eligible)}
+
+
 def stationarity(Q, pi, N):
     residual = float(np.max(np.abs(Q.T @ pi - pi)))
     marginal = pi.reshape((N, 2), order="F").sum(axis=0)
@@ -139,6 +177,12 @@ def bellman(model, solutions):
     mismatch = int(np.count_nonzero(G.reshape(V.shape, order="F") != expected_G))
     outcomes = [outcome(9, error <= scale and mismatch == 0,
                         operator_error=error, tolerance=scale, policy_mismatches=mismatch)]
+    return outcomes + stopping(model, solutions)
+
+
+def stopping(model, solutions):
+    """Saved-value and settings portion of test 9, also for capped baseline runs."""
+    outcomes = []
     for name, solution in solutions.items():
         meta = solution["metadata"]
         x = solution["V"].ravel(order="F")
@@ -178,6 +222,18 @@ def bellman(model, solutions):
                                 outer_passes=meta["outer_passes"], updates=meta["updates"],
                                 inner_steps=meta["inner_steps"], converged=converged))
     return outcomes
+
+
+def baseline_policy_checks(model, solution, pi, distribution_metadata, dense, csr, diagnostics):
+    """Applicable tests 2–10 for one converged baseline policy."""
+    yield monotone(solution["G"])
+    yield consumption(model, solution["G"], solution["consumption"])
+    yield normalization(pi)
+    yield nonnegative(pi, distribution_metadata)
+    yield top_mass(pi, model.N)
+    yield transition(model, solution["G"], dense, csr)
+    yield stationarity(csr, pi, model.N)
+    yield euler(model, solution["G"], pi, diagnostics)
 
 
 def euler(model, G, pi, saved):

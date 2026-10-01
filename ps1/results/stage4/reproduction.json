@@ -1,0 +1,102 @@
+{
+  "test_id": 11,
+  "passed": true,
+  "scope": "clean reproduction",
+  "scratch_started_without_results": true,
+  "arrays_checked": 330,
+  "json_numbers_checked": 8514,
+  "exact_policy_arrays": 24,
+  "policy_mismatches": 0,
+  "maximum_absolute_difference": 0.0,
+  "maximum_tolerance_ratio": 0.0,
+  "largest_scaled_difference_location": null,
+  "tolerance": "elementwise 1e-8*max(1,abs(reference)); discrete policies exact",
+  "scratch_check_records": 204,
+  "scratch_passed": 202,
+  "scratch_expected_range_rejections": 2,
+  "scratch_complete_outputs": {
+    "test_id": 11,
+    "passed": true,
+    "scope": "complete outputs (clean reproduction still separate)",
+    "required_artifact_count": 215,
+    "solution_count": 24,
+    "table_count": 11,
+    "figure_pairs": 8,
+    "node_counts": [
+      100,
+      500,
+      1000,
+      2000,
+      5000
+    ],
+    "selected_settings": {
+      "solver": "modified_howard",
+      "distribution_method": "power",
+      "representation": "sparse",
+      "k_max": 5,
+      "grid_kind": "exp_log",
+      "N": 5000
+    }
+  },
+  "scratch_part_runtimes": {
+    "a: five solvers": 103.30490779099637,
+    "a: shared utility construction": 0.018615875000250526,
+    "a: optional singular-value diagnostics": 0.021964915991702583,
+    "b: three dense distributions": 0.31038666699896567,
+    "bc: common dense-Q construction": 0.0021339579980121925,
+    "c: three sparse distributions": 0.012540832998638507,
+    "c: common CSR conversion": 0.011808499999460764,
+    "d: recorded choice": 0.0,
+    "e: trial compute sum": 0.44855504099541577,
+    "f: trial compute sum": 0.1535264989870484,
+    "g: trial compute sum": 2.3971061239935807,
+    "h: analysis": 1.644641999999294
+  },
+  "bounded_calls": [
+    {
+      "stage": "2",
+      "part": null,
+      "exit_code": 0
+    },
+    {
+      "stage": "3",
+      "part": null,
+      "exit_code": 0
+    },
+    {
+      "stage": "4",
+      "part": "abc",
+      "exit_code": 75
+    },
+    {
+      "stage": "4",
+      "part": "abc",
+      "exit_code": 75
+    },
+    {
+      "stage": "4",
+      "part": "abc",
+      "exit_code": 0
+    },
+    {
+      "stage": "4",
+      "part": "e",
+      "exit_code": 0
+    },
+    {
+      "stage": "4",
+      "part": "f",
+      "exit_code": 0
+    },
+    {
+      "stage": "4",
+      "part": "g",
+      "exit_code": 0
+    },
+    {
+      "stage": "4",
+      "part": "h",
+      "exit_code": 0
+    }
+  ]
+}

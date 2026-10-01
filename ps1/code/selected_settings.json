@@ -1,8 +1,8 @@
 {
-  "solver": null,
-  "distribution_method": null,
-  "representation": null,
-  "k_max": null,
-  "grid_kind": null,
-  "N": null
+  "solver": "modified_howard",
+  "distribution_method": "power",
+  "representation": "sparse",
+  "k_max": 5,
+  "grid_kind": "exp_log",
+  "N": 5000
 }

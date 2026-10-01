@@ -1,0 +1,254 @@
+{
+  "k_max": 2,
+  "settings": {
+    "beta": 0.96,
+    "sigma": 1.5,
+    "labor": 1.0,
+    "k_min": 0.0,
+    "z": 1.0,
+    "alpha": 0.36,
+    "delta": 0.1,
+    "K0": 5.0,
+    "efficiency": [
+      0.8,
+      1.2
+    ],
+    "P": [
+      [
+        0.5,
+        0.5
+      ],
+      [
+        0.5,
+        0.5
+      ]
+    ],
+    "shock_stationary": [
+      0.5,
+      0.5
+    ],
+    "seed": 0,
+    "N": 1000,
+    "k_max": 2.0,
+    "grid_kind": "uniform",
+    "L": 1.0,
+    "w": 1.1423762763050482,
+    "r": 0.028517331084317893,
+    "utility_seconds": 0.02448187499976484,
+    "dtype": "float64",
+    "stack_order": "F"
+  },
+  "selected_methods": {
+    "solver": "modified_howard",
+    "distribution_method": "power",
+    "representation": "sparse"
+  },
+  "statistics": {
+    "mean_assets": 0.4507102767649855,
+    "top_node_mass": 6.0127720944279944e-05,
+    "support_endpoint": 2.0,
+    "support_share": 1.0,
+    "support_count": 1000
+  },
+  "timings": {
+    "utility_seconds": 0.02448187499976484,
+    "solver_seconds": 0.05503991799923824,
+    "transition_seconds": 0.00014879199443385005,
+    "distribution_seconds": 0.0027704169988282956,
+    "compute_seconds": 0.08244100199226523
+  },
+  "solver": {
+    "method": "modified_howard",
+    "tolerance": 1e-08,
+    "outer_pass_cap": 10000,
+    "outer_passes": 19,
+    "updates": 18,
+    "inner_steps": 360,
+    "seconds": 0.05503991799923824,
+    "exit_metric": 7.770500325696219e-09,
+    "converged": true,
+    "status": "converged",
+    "modified_howard_steps_per_update": 20,
+    "gradient_step": 0.0005,
+    "adam_learning_rate": 0.1,
+    "adam_moment_decay": [
+      0.9,
+      0.999
+    ],
+    "adam_epsilon": 1e-08,
+    "initial_value": "zero",
+    "euler_statistics": {
+      "slack_count": 1948,
+      "slack_mass": 0.9121539636043006,
+      "upper_choice_count": 23,
+      "weighted_maximum_convention": "max_A(q*E), q=pi/sum_A(pi)",
+      "maximum": 0.03174179505166619,
+      "mean": 0.0007313310251753249,
+      "weighted_mean": 0.0005947178364153177,
+      "weighted_maximum": 3.252209801435362e-05,
+      "supported_maximum": 0.03174179505166619,
+      "unavailable_reasons": {}
+    }
+  },
+  "distribution": {
+    "raw_minimum": 2.798753306207014e-07,
+    "correction_mass": -0.0,
+    "raw_sum": 1.0,
+    "sum": 1.0,
+    "stationarity_residual": 8.275116702982643e-13,
+    "shock_marginals": [
+      0.5,
+      0.5
+    ],
+    "method": "power",
+    "updates": 153,
+    "update_tolerance": 1e-12,
+    "update_cap": 100000,
+    "last_difference": 9.651446308822642e-13,
+    "seconds": 0.0027704169988282956
+  },
+  "range_status": "rejected_truncated",
+  "checks": [
+    {
+      "test_id": 2,
+      "passed": true,
+      "violation_count": 0,
+      "violations_lower_node_and_shock": [],
+      "k_max": 2
+    },
+    {
+      "test_id": 3,
+      "passed": true,
+      "valid_policy_indices": true,
+      "minimum": 0.9139010210440386,
+      "minimum_state": [
+        0,
+        0
+      ],
+      "budget_difference": 0.0,
+      "k_max": 2
+    },
+    {
+      "test_id": 4,
+      "passed": true,
+      "total": 1.0,
+      "deviation": 0.0,
+      "k_max": 2
+    },
+    {
+      "test_id": 5,
+      "passed": true,
+      "raw_minimum": 2.798753306207014e-07,
+      "correction_mass": -0.0,
+      "saved_minimum": 2.798753306207014e-07,
+      "k_max": 2
+    },
+    {
+      "test_id": 6,
+      "passed": false,
+      "top_node_mass": 6.0127720944279944e-05,
+      "range_status": "rejected_truncated",
+      "expected_trial_rejection": true,
+      "k_max": 2
+    },
+    {
+      "test_id": 7,
+      "passed": true,
+      "shape": [
+        2000,
+        2000
+      ],
+      "representation": "CSR",
+      "minimum_entry": 0.0,
+      "row_sum_error": 0.0,
+      "policy_entry_error": 0.0,
+      "k_max": 2
+    },
+    {
+      "test_id": 8,
+      "passed": true,
+      "stationarity_residual": 8.275116702982643e-13,
+      "shock_marginals": [
+        0.5,
+        0.5
+      ],
+      "shock_marginal_error": 0.0,
+      "k_max": 2
+    },
+    {
+      "test_id": 9,
+      "passed": true,
+      "method": "modified_howard",
+      "exit_metric": 7.770500325696219e-09,
+      "metric_difference": 0.0,
+      "outer_passes": 19,
+      "updates": 18,
+      "inner_steps": 360,
+      "converged": true,
+      "k_max": 2
+    },
+    {
+      "test_id": 10,
+      "passed": true,
+      "scalar_checks": [
+        {
+          "state": [
+            0,
+            0
+          ],
+          "residual": 0.11393213256561463,
+          "difference": 0.0
+        },
+        {
+          "state": [
+            50,
+            1
+          ],
+          "residual": 0.000374949302259564,
+          "difference": 0.0
+        },
+        {
+          "state": [
+            99,
+            0
+          ],
+          "residual": 0.0003960291411477801,
+          "difference": 0.0
+        }
+      ],
+      "summary_differences": {
+        "maximum": 0.0,
+        "mean": 0.0,
+        "weighted_mean": 0.0,
+        "weighted_maximum": 0.0,
+        "supported_maximum": 0.0,
+        "slack_mass": 0.0,
+        "slack_count": 0.0,
+        "upper_choice_count": 0.0
+      },
+      "expected_statistics": {
+        "maximum": 0.03174179505166619,
+        "mean": 0.0007313310251753249,
+        "weighted_mean": 0.0005947178364153177,
+        "weighted_maximum": 3.252209801435362e-05,
+        "supported_maximum": 0.03174179505166619,
+        "slack_mass": 0.9121539636043006,
+        "slack_count": 1948,
+        "upper_choice_count": 23
+      },
+      "k_max": 2
+    }
+  ],
+  "euler_statistics": {
+    "slack_count": 1948,
+    "slack_mass": 0.9121539636043006,
+    "upper_choice_count": 23,
+    "weighted_maximum_convention": "max_A(q*E), q=pi/sum_A(pi)",
+    "maximum": 0.03174179505166619,
+    "mean": 0.0007313310251753249,
+    "weighted_mean": 0.0005947178364153177,
+    "weighted_maximum": 3.252209801435362e-05,
+    "supported_maximum": 0.03174179505166619,
+    "unavailable_reasons": {}
+  }
+}

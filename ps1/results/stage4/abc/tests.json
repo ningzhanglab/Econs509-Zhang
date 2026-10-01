@@ -1,0 +1,616 @@
+{
+  "status": "passed",
+  "checks": [
+    {
+      "test_id": 9,
+      "passed": true,
+      "method": "vfi",
+      "exit_metric": 9.718061290765203e-09,
+      "metric_difference": 0.0,
+      "outer_passes": 379,
+      "updates": 378,
+      "inner_steps": 0,
+      "converged": true,
+      "part": "a"
+    },
+    {
+      "test_id": 9,
+      "passed": true,
+      "method": "howard",
+      "exit_metric": 6.019251319260416e-16,
+      "metric_difference": 0.0,
+      "outer_passes": 15,
+      "updates": 14,
+      "inner_steps": 0,
+      "converged": true,
+      "part": "a"
+    },
+    {
+      "test_id": 9,
+      "passed": true,
+      "method": "modified_howard",
+      "exit_metric": 9.339877798342062e-09,
+      "metric_difference": 0.0,
+      "outer_passes": 19,
+      "updates": 18,
+      "inner_steps": 360,
+      "converged": true,
+      "part": "a"
+    },
+    {
+      "test_id": 9,
+      "passed": true,
+      "method": "gradient",
+      "exit_metric": 1.2576012600138837,
+      "metric_difference": 0.0,
+      "outer_passes": 20000,
+      "updates": 20000,
+      "inner_steps": 0,
+      "converged": false,
+      "part": "a"
+    },
+    {
+      "test_id": 9,
+      "passed": true,
+      "method": "adam",
+      "exit_metric": 0.12511310726241673,
+      "metric_difference": 0.0,
+      "outer_passes": 20000,
+      "updates": 20000,
+      "inner_steps": 0,
+      "converged": false,
+      "part": "a"
+    },
+    {
+      "test_id": 4,
+      "passed": true,
+      "total": 1.0,
+      "deviation": 0.0,
+      "distribution": "dense_power",
+      "part": "b"
+    },
+    {
+      "test_id": 5,
+      "passed": true,
+      "raw_minimum": 0.0,
+      "correction_mass": -0.0,
+      "saved_minimum": 0.0,
+      "distribution": "dense_power",
+      "part": "b"
+    },
+    {
+      "test_id": 8,
+      "passed": true,
+      "stationarity_residual": 7.76899378163165e-13,
+      "shock_marginals": [
+        0.5,
+        0.5
+      ],
+      "shock_marginal_error": 0.0,
+      "distribution": "dense_power",
+      "part": "b"
+    },
+    {
+      "test_id": 4,
+      "passed": true,
+      "total": 1.0,
+      "deviation": 0.0,
+      "distribution": "dense_eigen",
+      "part": "b"
+    },
+    {
+      "test_id": 5,
+      "passed": true,
+      "raw_minimum": -8.063130615794091e-28,
+      "correction_mass": 4.454879665226235e-26,
+      "saved_minimum": -0.0,
+      "distribution": "dense_eigen",
+      "part": "b"
+    },
+    {
+      "test_id": 8,
+      "passed": true,
+      "stationarity_residual": 1.734723475976807e-17,
+      "shock_marginals": [
+        0.5000000000000001,
+        0.5
+      ],
+      "shock_marginal_error": 1.1102230246251565e-16,
+      "distribution": "dense_eigen",
+      "part": "b"
+    },
+    {
+      "test_id": 4,
+      "passed": true,
+      "total": 1.0,
+      "deviation": 0.0,
+      "distribution": "dense_direct",
+      "part": "b"
+    },
+    {
+      "test_id": 5,
+      "passed": true,
+      "raw_minimum": 0.0,
+      "correction_mass": -0.0,
+      "saved_minimum": 0.0,
+      "distribution": "dense_direct",
+      "part": "b"
+    },
+    {
+      "test_id": 8,
+      "passed": true,
+      "stationarity_residual": 3.191891195797325e-16,
+      "shock_marginals": [
+        0.4999999999999998,
+        0.5000000000000002
+      ],
+      "shock_marginal_error": 2.220446049250313e-16,
+      "distribution": "dense_direct",
+      "part": "b"
+    },
+    {
+      "test_id": 4,
+      "passed": true,
+      "total": 1.0,
+      "deviation": 0.0,
+      "distribution": "sparse_power",
+      "part": "c"
+    },
+    {
+      "test_id": 5,
+      "passed": true,
+      "raw_minimum": 0.0,
+      "correction_mass": -0.0,
+      "saved_minimum": 0.0,
+      "distribution": "sparse_power",
+      "part": "c"
+    },
+    {
+      "test_id": 8,
+      "passed": true,
+      "stationarity_residual": 7.769063170570689e-13,
+      "shock_marginals": [
+        0.5,
+        0.5
+      ],
+      "shock_marginal_error": 0.0,
+      "distribution": "sparse_power",
+      "part": "c"
+    },
+    {
+      "test_id": 4,
+      "passed": true,
+      "total": 1.0,
+      "deviation": 0.0,
+      "distribution": "sparse_eigen",
+      "part": "c"
+    },
+    {
+      "test_id": 5,
+      "passed": true,
+      "raw_minimum": -4.0315653078970437e-28,
+      "correction_mass": 2.0157826539485218e-26,
+      "saved_minimum": -0.0,
+      "distribution": "sparse_eigen",
+      "part": "c"
+    },
+    {
+      "test_id": 8,
+      "passed": true,
+      "stationarity_residual": 1.3877787807814457e-17,
+      "shock_marginals": [
+        0.5,
+        0.5
+      ],
+      "shock_marginal_error": 0.0,
+      "distribution": "sparse_eigen",
+      "part": "c"
+    },
+    {
+      "test_id": 4,
+      "passed": true,
+      "total": 1.0,
+      "deviation": 0.0,
+      "distribution": "sparse_direct",
+      "part": "c"
+    },
+    {
+      "test_id": 5,
+      "passed": true,
+      "raw_minimum": 0.0,
+      "correction_mass": -0.0,
+      "saved_minimum": 0.0,
+      "distribution": "sparse_direct",
+      "part": "c"
+    },
+    {
+      "test_id": 8,
+      "passed": true,
+      "stationarity_residual": 8.487733479791465e-18,
+      "shock_marginals": [
+        0.5,
+        0.5
+      ],
+      "shock_marginal_error": 0.0,
+      "distribution": "sparse_direct",
+      "part": "c"
+    },
+    {
+      "test_id": 8,
+      "passed": true,
+      "largest_pair": [
+        "dense_direct",
+        "sparse_power"
+      ],
+      "maximum_difference": 5.490115306816534e-12,
+      "part": "bc"
+    },
+    {
+      "test_id": 2,
+      "passed": true,
+      "violation_count": 0,
+      "violations_lower_node_and_shock": [],
+      "solver": "vfi",
+      "part": "a"
+    },
+    {
+      "test_id": 3,
+      "passed": true,
+      "valid_policy_indices": true,
+      "minimum": 0.9139010210440386,
+      "minimum_state": [
+        0,
+        0
+      ],
+      "budget_difference": 0.0,
+      "solver": "vfi",
+      "part": "a"
+    },
+    {
+      "test_id": 4,
+      "passed": true,
+      "total": 1.0,
+      "deviation": 0.0,
+      "solver": "vfi",
+      "part": "a"
+    },
+    {
+      "test_id": 5,
+      "passed": true,
+      "raw_minimum": 0.0,
+      "correction_mass": -0.0,
+      "saved_minimum": 0.0,
+      "solver": "vfi",
+      "part": "a"
+    },
+    {
+      "test_id": 6,
+      "passed": true,
+      "top_node_mass": 0.0,
+      "solver": "vfi",
+      "part": "a"
+    },
+    {
+      "test_id": 7,
+      "passed": true,
+      "shape": [
+        2000,
+        2000
+      ],
+      "policy_entry_error": 0.0,
+      "row_sum_error": 0.0,
+      "representation_error": 0.0,
+      "solver": "vfi",
+      "part": "a"
+    },
+    {
+      "test_id": 8,
+      "passed": true,
+      "stationarity_residual": 7.769063170570689e-13,
+      "shock_marginals": [
+        0.5,
+        0.5
+      ],
+      "shock_marginal_error": 0.0,
+      "solver": "vfi",
+      "part": "a"
+    },
+    {
+      "test_id": 10,
+      "passed": true,
+      "scalar_checks": [
+        {
+          "state": [
+            0,
+            0
+          ],
+          "residual": 0.11227851817634349,
+          "difference": 0.0
+        },
+        {
+          "state": [
+            50,
+            1
+          ],
+          "residual": 0.0034534745481972218,
+          "difference": 0.0
+        },
+        {
+          "state": [
+            99,
+            0
+          ],
+          "residual": 0.0005596289317677527,
+          "difference": 0.0
+        }
+      ],
+      "summary_differences": {
+        "maximum": 0.0,
+        "mean": 0.0,
+        "weighted_mean": 0.0,
+        "weighted_maximum": 0.0,
+        "supported_maximum": 0.0,
+        "slack_mass": 0.0,
+        "slack_count": 0.0,
+        "upper_choice_count": 0.0
+      },
+      "expected_statistics": {
+        "maximum": 0.017022358271073346,
+        "mean": 0.003854540720910524,
+        "weighted_mean": 0.005664046608510674,
+        "weighted_maximum": 0.00025257329599190955,
+        "supported_maximum": 0.017022358271073346,
+        "slack_mass": 0.9074119073686473,
+        "slack_count": 1994,
+        "upper_choice_count": 0
+      },
+      "solver": "vfi",
+      "part": "a"
+    },
+    {
+      "test_id": 2,
+      "passed": true,
+      "violation_count": 0,
+      "violations_lower_node_and_shock": [],
+      "solver": "howard",
+      "part": "a"
+    },
+    {
+      "test_id": 3,
+      "passed": true,
+      "valid_policy_indices": true,
+      "minimum": 0.9139010210440386,
+      "minimum_state": [
+        0,
+        0
+      ],
+      "budget_difference": 0.0,
+      "solver": "howard",
+      "part": "a"
+    },
+    {
+      "test_id": 4,
+      "passed": true,
+      "total": 1.0,
+      "deviation": 0.0,
+      "solver": "howard",
+      "part": "a"
+    },
+    {
+      "test_id": 5,
+      "passed": true,
+      "raw_minimum": 0.0,
+      "correction_mass": -0.0,
+      "saved_minimum": 0.0,
+      "solver": "howard",
+      "part": "a"
+    },
+    {
+      "test_id": 6,
+      "passed": true,
+      "top_node_mass": 0.0,
+      "solver": "howard",
+      "part": "a"
+    },
+    {
+      "test_id": 7,
+      "passed": true,
+      "shape": [
+        2000,
+        2000
+      ],
+      "policy_entry_error": 0.0,
+      "row_sum_error": 0.0,
+      "representation_error": 0.0,
+      "solver": "howard",
+      "part": "a"
+    },
+    {
+      "test_id": 8,
+      "passed": true,
+      "stationarity_residual": 7.769063170570689e-13,
+      "shock_marginals": [
+        0.5,
+        0.5
+      ],
+      "shock_marginal_error": 0.0,
+      "solver": "howard",
+      "part": "a"
+    },
+    {
+      "test_id": 10,
+      "passed": true,
+      "scalar_checks": [
+        {
+          "state": [
+            0,
+            0
+          ],
+          "residual": 0.11227851817634349,
+          "difference": 0.0
+        },
+        {
+          "state": [
+            50,
+            1
+          ],
+          "residual": 0.0034534745481972218,
+          "difference": 0.0
+        },
+        {
+          "state": [
+            99,
+            0
+          ],
+          "residual": 0.0005596289317677527,
+          "difference": 0.0
+        }
+      ],
+      "summary_differences": {
+        "maximum": 0.0,
+        "mean": 0.0,
+        "weighted_mean": 0.0,
+        "weighted_maximum": 0.0,
+        "supported_maximum": 0.0,
+        "slack_mass": 0.0,
+        "slack_count": 0.0,
+        "upper_choice_count": 0.0
+      },
+      "expected_statistics": {
+        "maximum": 0.017022358271073346,
+        "mean": 0.003854540720910524,
+        "weighted_mean": 0.005664046608510674,
+        "weighted_maximum": 0.00025257329599190955,
+        "supported_maximum": 0.017022358271073346,
+        "slack_mass": 0.9074119073686473,
+        "slack_count": 1994,
+        "upper_choice_count": 0
+      },
+      "solver": "howard",
+      "part": "a"
+    },
+    {
+      "test_id": 2,
+      "passed": true,
+      "violation_count": 0,
+      "violations_lower_node_and_shock": [],
+      "solver": "modified_howard",
+      "part": "a"
+    },
+    {
+      "test_id": 3,
+      "passed": true,
+      "valid_policy_indices": true,
+      "minimum": 0.9139010210440386,
+      "minimum_state": [
+        0,
+        0
+      ],
+      "budget_difference": 0.0,
+      "solver": "modified_howard",
+      "part": "a"
+    },
+    {
+      "test_id": 4,
+      "passed": true,
+      "total": 1.0,
+      "deviation": 0.0,
+      "solver": "modified_howard",
+      "part": "a"
+    },
+    {
+      "test_id": 5,
+      "passed": true,
+      "raw_minimum": 0.0,
+      "correction_mass": -0.0,
+      "saved_minimum": 0.0,
+      "solver": "modified_howard",
+      "part": "a"
+    },
+    {
+      "test_id": 6,
+      "passed": true,
+      "top_node_mass": 0.0,
+      "solver": "modified_howard",
+      "part": "a"
+    },
+    {
+      "test_id": 7,
+      "passed": true,
+      "shape": [
+        2000,
+        2000
+      ],
+      "policy_entry_error": 0.0,
+      "row_sum_error": 0.0,
+      "representation_error": 0.0,
+      "solver": "modified_howard",
+      "part": "a"
+    },
+    {
+      "test_id": 8,
+      "passed": true,
+      "stationarity_residual": 7.769063170570689e-13,
+      "shock_marginals": [
+        0.5,
+        0.5
+      ],
+      "shock_marginal_error": 0.0,
+      "solver": "modified_howard",
+      "part": "a"
+    },
+    {
+      "test_id": 10,
+      "passed": true,
+      "scalar_checks": [
+        {
+          "state": [
+            0,
+            0
+          ],
+          "residual": 0.11227851817634349,
+          "difference": 0.0
+        },
+        {
+          "state": [
+            50,
+            1
+          ],
+          "residual": 0.0034534745481972218,
+          "difference": 0.0
+        },
+        {
+          "state": [
+            99,
+            0
+          ],
+          "residual": 0.0005596289317677527,
+          "difference": 0.0
+        }
+      ],
+      "summary_differences": {
+        "maximum": 0.0,
+        "mean": 0.0,
+        "weighted_mean": 0.0,
+        "weighted_maximum": 0.0,
+        "supported_maximum": 0.0,
+        "slack_mass": 0.0,
+        "slack_count": 0.0,
+        "upper_choice_count": 0.0
+      },
+      "expected_statistics": {
+        "maximum": 0.017022358271073346,
+        "mean": 0.003854540720910524,
+        "weighted_mean": 0.005664046608510674,
+        "weighted_maximum": 0.00025257329599190955,
+        "supported_maximum": 0.017022358271073346,
+        "slack_mass": 0.9074119073686473,
+        "slack_count": 1994,
+        "upper_choice_count": 0
+      },
+      "solver": "modified_howard",
+      "part": "a"
+    }
+  ],
+  "pending": "Test 11 and later experiments"
+}

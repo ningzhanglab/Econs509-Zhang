@@ -1,0 +1,41 @@
+{
+  "contraction_prediction": 451.2440158898249,
+  "observed_vfi_passes": 379,
+  "specified_hessian_expression": 624.9999999999989,
+  "singular_values": {
+    "zero_values": {
+      "status": "computed",
+      "sigma_min": 0.001317558508519473,
+      "sigma_max": 30.359183096124976,
+      "condition_J": 23041.999956601,
+      "condition_JtJ": 530933762.00000054,
+      "seconds": 0.009500209001998883,
+      "settings": {
+        "method": "svds largest of J and J_inverse; sigma_min=1/sigma_max(J_inverse)",
+        "solver": "arpack",
+        "k": 1,
+        "which": "LM",
+        "tol": 0.0,
+        "optional_time_budget_seconds": 25,
+        "initial_vector": "ones(M)/sqrt(M)"
+      }
+    },
+    "howard_solution": {
+      "status": "computed",
+      "sigma_min": 0.0199827991365867,
+      "sigma_max": 2.0309506651629152,
+      "condition_J": 101.63494369737361,
+      "condition_JtJ": 10329.661780368304,
+      "seconds": 0.012335250001342501,
+      "settings": {
+        "method": "svds largest of J and J_inverse; sigma_min=1/sigma_max(J_inverse)",
+        "solver": "arpack",
+        "k": 1,
+        "which": "LM",
+        "tol": 0.0,
+        "optional_time_budget_seconds": 25,
+        "initial_vector": "ones(M)/sqrt(M)"
+      }
+    }
+  }
+}

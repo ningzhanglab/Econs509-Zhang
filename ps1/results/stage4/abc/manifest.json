@@ -1,0 +1,46 @@
+{
+  "settings": {
+    "beta": 0.96,
+    "sigma": 1.5,
+    "labor": 1.0,
+    "k_min": 0.0,
+    "z": 1.0,
+    "alpha": 0.36,
+    "delta": 0.1,
+    "K0": 5.0,
+    "efficiency": [
+      0.8,
+      1.2
+    ],
+    "P": [
+      [
+        0.5,
+        0.5
+      ],
+      [
+        0.5,
+        0.5
+      ]
+    ],
+    "shock_stationary": [
+      0.5,
+      0.5
+    ],
+    "seed": 0,
+    "N": 1000,
+    "k_max": 20.0,
+    "grid_kind": "uniform",
+    "L": 1.0,
+    "w": 1.1423762763050482,
+    "r": 0.028517331084317893,
+    "utility_seconds": 0.02056266600266099,
+    "dtype": "float64",
+    "stack_order": "F"
+  },
+  "code_sha256": "426b92f926cb8575f56d89a113846766782ae7620ad1224aaaf360b86d756ced",
+  "resume_utility_construction_seconds": [
+    0.018546375002188142,
+    0.01890708299470134
+  ],
+  "status": "awaiting_method_choice"
+}

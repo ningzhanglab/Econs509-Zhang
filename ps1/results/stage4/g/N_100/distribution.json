@@ -1,0 +1,17 @@
+{
+  "raw_minimum": 1.3363823550460979e-53,
+  "correction_mass": -0.0,
+  "raw_sum": 1.0,
+  "sum": 1.0,
+  "stationarity_residual": 7.879114027886658e-13,
+  "shock_marginals": [
+    0.5,
+    0.5
+  ],
+  "method": "power",
+  "updates": 168,
+  "update_tolerance": 1e-12,
+  "update_cap": 100000,
+  "last_difference": 9.185777138931428e-13,
+  "seconds": 0.002711957997235004
+}

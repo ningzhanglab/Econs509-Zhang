@@ -1,0 +1,13 @@
+{
+  "raw_minimum": 0.0,
+  "correction_mass": -0.0,
+  "raw_sum": 0.9999999999999998,
+  "sum": 1.0,
+  "stationarity_residual": 3.191891195797325e-16,
+  "shock_marginals": [
+    0.4999999999999998,
+    0.5000000000000002
+  ],
+  "method": "direct",
+  "seconds": 0.03668008300155634
+}

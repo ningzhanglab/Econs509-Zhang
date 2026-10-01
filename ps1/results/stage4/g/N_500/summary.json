@@ -1,0 +1,270 @@
+{
+  "settings": {
+    "beta": 0.96,
+    "sigma": 1.5,
+    "labor": 1.0,
+    "k_min": 0.0,
+    "z": 1.0,
+    "alpha": 0.36,
+    "delta": 0.1,
+    "K0": 5.0,
+    "efficiency": [
+      0.8,
+      1.2
+    ],
+    "P": [
+      [
+        0.5,
+        0.5
+      ],
+      [
+        0.5,
+        0.5
+      ]
+    ],
+    "shock_stationary": [
+      0.5,
+      0.5
+    ],
+    "seed": 0,
+    "N": 500,
+    "k_max": 5.0,
+    "grid_kind": "exp_log",
+    "L": 1.0,
+    "w": 1.1423762763050482,
+    "r": 0.028517331084317893,
+    "utility_seconds": 0.006795458000851795,
+    "dtype": "float64",
+    "stack_order": "F"
+  },
+  "selected_methods": {
+    "solver": "modified_howard",
+    "distribution_method": "power",
+    "representation": "sparse"
+  },
+  "statistics": {
+    "mean_assets": 0.4501907831795354,
+    "top_node_mass": 0.0,
+    "support_endpoint": 3.2201506902181567,
+    "support_share": 0.802,
+    "support_count": 401,
+    "maximum_grid_step": 0.021505568901864613
+  },
+  "solver": {
+    "method": "modified_howard",
+    "tolerance": 1e-08,
+    "outer_pass_cap": 10000,
+    "outer_passes": 19,
+    "updates": 18,
+    "inner_steps": 360,
+    "seconds": 0.015660459001082927,
+    "exit_metric": 8.077990180633367e-09,
+    "converged": true,
+    "status": "converged",
+    "modified_howard_steps_per_update": 20,
+    "gradient_step": 0.0005,
+    "adam_learning_rate": 0.1,
+    "adam_moment_decay": [
+      0.9,
+      0.999
+    ],
+    "adam_epsilon": 1e-08,
+    "initial_value": "zero",
+    "euler_statistics": {
+      "slack_count": 972,
+      "slack_mass": 0.9110245255261176,
+      "upper_choice_count": 0,
+      "weighted_maximum_convention": "max_A(q*E), q=pi/sum_A(pi)",
+      "maximum": 0.010251976838281163,
+      "mean": 0.0022580188931132566,
+      "weighted_mean": 0.001502891237491406,
+      "weighted_maximum": 0.00012186966397486357,
+      "supported_maximum": 0.0078055632386224705,
+      "unavailable_reasons": {}
+    }
+  },
+  "distribution": {
+    "raw_minimum": 0.0,
+    "correction_mass": -0.0,
+    "raw_sum": 0.9999999999999999,
+    "sum": 1.0,
+    "stationarity_residual": 7.530087664520124e-13,
+    "shock_marginals": [
+      0.5000000000000001,
+      0.5000000000000001
+    ],
+    "method": "power",
+    "updates": 169,
+    "update_tolerance": 1e-12,
+    "update_cap": 100000,
+    "last_difference": 8.765210779415611e-13,
+    "seconds": 0.00287229099922115
+  },
+  "euler_statistics": {
+    "slack_count": 972,
+    "slack_mass": 0.9110245255261176,
+    "upper_choice_count": 0,
+    "weighted_maximum_convention": "max_A(q*E), q=pi/sum_A(pi)",
+    "maximum": 0.010251976838281163,
+    "mean": 0.0022580188931132566,
+    "weighted_mean": 0.001502891237491406,
+    "weighted_maximum": 0.00012186966397486357,
+    "supported_maximum": 0.0078055632386224705,
+    "unavailable_reasons": {}
+  },
+  "timings": {
+    "utility_seconds": 0.006795458000851795,
+    "solver_seconds": 0.015660459001082927,
+    "transition_seconds": 0.00017054099589586258,
+    "distribution_seconds": 0.00287229099922115,
+    "compute_seconds": 0.025498748997051734
+  },
+  "checks": [
+    {
+      "test_id": 2,
+      "passed": true,
+      "violation_count": 0,
+      "violations_lower_node_and_shock": [],
+      "N": 500,
+      "grid_kind": "exp_log",
+      "k_max": 5.0
+    },
+    {
+      "test_id": 3,
+      "passed": true,
+      "valid_policy_indices": true,
+      "minimum": 0.9139010210440386,
+      "minimum_state": [
+        0,
+        0
+      ],
+      "budget_difference": 0.0,
+      "N": 500,
+      "grid_kind": "exp_log",
+      "k_max": 5.0
+    },
+    {
+      "test_id": 4,
+      "passed": true,
+      "total": 1.0,
+      "deviation": 0.0,
+      "N": 500,
+      "grid_kind": "exp_log",
+      "k_max": 5.0
+    },
+    {
+      "test_id": 5,
+      "passed": true,
+      "raw_minimum": 0.0,
+      "correction_mass": -0.0,
+      "saved_minimum": 0.0,
+      "N": 500,
+      "grid_kind": "exp_log",
+      "k_max": 5.0
+    },
+    {
+      "test_id": 6,
+      "passed": true,
+      "top_node_mass": 0.0,
+      "N": 500,
+      "grid_kind": "exp_log",
+      "k_max": 5.0
+    },
+    {
+      "test_id": 7,
+      "passed": true,
+      "shape": [
+        1000,
+        1000
+      ],
+      "representation": "CSR",
+      "minimum_entry": 0.0,
+      "row_sum_error": 0.0,
+      "policy_entry_error": 0.0,
+      "N": 500,
+      "grid_kind": "exp_log",
+      "k_max": 5.0
+    },
+    {
+      "test_id": 8,
+      "passed": true,
+      "stationarity_residual": 7.530087664520124e-13,
+      "shock_marginals": [
+        0.5000000000000001,
+        0.5000000000000001
+      ],
+      "shock_marginal_error": 1.1102230246251565e-16,
+      "N": 500,
+      "grid_kind": "exp_log",
+      "k_max": 5.0
+    },
+    {
+      "test_id": 9,
+      "passed": true,
+      "method": "modified_howard",
+      "exit_metric": 8.077990180633367e-09,
+      "metric_difference": 0.0,
+      "outer_passes": 19,
+      "updates": 18,
+      "inner_steps": 360,
+      "converged": true,
+      "N": 500,
+      "grid_kind": "exp_log",
+      "k_max": 5.0
+    },
+    {
+      "test_id": 10,
+      "passed": true,
+      "scalar_checks": [
+        {
+          "state": [
+            0,
+            0
+          ],
+          "residual": 0.11404421161173373,
+          "difference": 0.0
+        },
+        {
+          "state": [
+            50,
+            1
+          ],
+          "residual": 0.002154889887171607,
+          "difference": 0.0
+        },
+        {
+          "state": [
+            99,
+            0
+          ],
+          "residual": 0.0013202679642072557,
+          "difference": 0.0
+        }
+      ],
+      "summary_differences": {
+        "maximum": 0.0,
+        "mean": 0.0,
+        "weighted_mean": 0.0,
+        "weighted_maximum": 0.0,
+        "supported_maximum": 0.0,
+        "slack_mass": 0.0,
+        "slack_count": 0.0,
+        "upper_choice_count": 0.0
+      },
+      "expected_statistics": {
+        "maximum": 0.010251976838281163,
+        "mean": 0.0022580188931132566,
+        "weighted_mean": 0.001502891237491406,
+        "weighted_maximum": 0.00012186966397486357,
+        "supported_maximum": 0.0078055632386224705,
+        "slack_mass": 0.9110245255261176,
+        "slack_count": 972,
+        "upper_choice_count": 0
+      },
+      "N": 500,
+      "grid_kind": "exp_log",
+      "k_max": 5.0
+    }
+  ],
+  "status": "passed"
+}

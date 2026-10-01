@@ -1,7 +1,13 @@
-"""Stage-aware regeneration driver. Full experiments remain pending stage 4.
+"""Stage-aware regeneration driver with explicit experiment decision gates.
 
 python code/run_all.py --stage 2
 python code/run_all.py --stage 3  # only after the student's stage-2 commit confirmation
+python code/run_all.py --stage 4  # parts (a)–(c), then stop for method choices
+python code/run_all.py --stage 4 --part e  # selected methods, then stop for range choice
+python code/run_all.py --stage 4 --part f  # selected range, then stop for grid choice
+python code/run_all.py --stage 4 --part g  # selected grid, then stop for final N choice
+python code/run_all.py --stage 4 --part h  # chosen N: accuracy, final checks, README
+python code/run_all.py  # all choices recorded: complete regeneration and scratch check
 
 An unfinished bounded run exits with code 75. Repeat with --resume to continue.
 """
@@ -178,17 +184,56 @@ def stage3(model, deadline, resume):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--stage", type=int, choices=(2, 3), default=2)
+    parser.add_argument("--stage", type=int, choices=(2, 3, 4), default=4)
     parser.add_argument("--resume", action="store_true")
+    parser.add_argument("--part", choices=("abc", "e", "f", "g", "h", "all"),
+                        help="Explicit stage-4 part; otherwise follow the recorded choices")
+    parser.add_argument("--check-reproduction", action="store_true",
+                        help="Verify existing complete outputs against clean scratch regeneration")
+    parser.add_argument("--numerical-only", action="store_true", help=argparse.SUPPRESS)
+    parser.add_argument("--slice-seconds", type=float, default=50.0,
+                        help="Checkpoint wall-time budget per call, between 1 and 110 seconds")
     args = parser.parse_args()
     np.random.seed(0)
-    deadline = perf_counter() + 110
-    model = Model(100, 20.0, "uniform")
+    if not 1 <= args.slice_seconds <= 110:
+        parser.error("--slice-seconds must be between 1 and 110")
+    deadline = perf_counter() + args.slice_seconds
+    model = Model(100, 20.0, "uniform") if args.stage < 4 else None
     try:
-        if args.stage == 2:
+        if args.check_reproduction:
+            from completion import check_reproduction
+            check_reproduction(ROOT, args.slice_seconds)
+        elif args.stage == 2:
             stage2(model, deadline, args.resume)
-        else:
+        elif args.stage == 3:
             stage3(model, deadline, args.resume)
+        else:
+            from experiments import run_abc, run_e, run_f, run_g, run_h
+            settings = json.loads((ROOT / "code" / "selected_settings.json").read_text())
+            part = args.part or ("all" if settings["N"] is not None else
+                                 "g" if settings["grid_kind"] is not None else
+                                 "f" if settings["k_max"] is not None else
+                                 "e" if settings["solver"] is not None else "abc")
+            if part == "all":
+                from completion import check_reproduction, regenerate
+                regenerate(ROOT, args.slice_seconds, args.resume)
+                if not args.numerical_only:
+                    check_reproduction(ROOT, args.slice_seconds)
+                print("Regeneration complete. Stop before the student's manual Stage-4 commit.", flush=True)
+            elif part == "abc":
+                run_abc(ROOT, deadline, args.resume, solve_one, load_solution, SliceComplete)
+            elif part == "e":
+                run_e(ROOT, deadline, args.resume, solve_one, load_solution, SliceComplete, settings)
+            elif part == "f":
+                run_f(ROOT, deadline, args.resume, solve_one, load_solution, SliceComplete, settings)
+            elif part == "g":
+                run_g(ROOT, deadline, args.resume, solve_one, load_solution, SliceComplete, settings)
+            else:
+                from completion import finalize
+                run_h(ROOT, deadline, args.resume, load_solution, SliceComplete, settings)
+                summary = finalize(ROOT)
+                print(f"Final checks: {summary['passed_records']} passed, "
+                      f"{summary['expected_range_rejections']} expected range rejections; clean reproduction pending.", flush=True)
     except SliceComplete as paused:
         print(f"{paused}. Repeat the same command with --resume.", flush=True)
         return 75

@@ -1,0 +1,150 @@
+{
+  "status": "passed",
+  "checks": [
+    {
+      "test_id": 2,
+      "passed": true,
+      "violation_count": 0,
+      "violations_lower_node_and_shock": [],
+      "N": 5000,
+      "grid_kind": "exp_log",
+      "k_max": 5.0
+    },
+    {
+      "test_id": 3,
+      "passed": true,
+      "valid_policy_indices": true,
+      "minimum": 0.9139010210440386,
+      "minimum_state": [
+        0,
+        0
+      ],
+      "budget_difference": 0.0,
+      "N": 5000,
+      "grid_kind": "exp_log",
+      "k_max": 5.0
+    },
+    {
+      "test_id": 4,
+      "passed": true,
+      "total": 0.9999999999999999,
+      "deviation": 1.1102230246251565e-16,
+      "N": 5000,
+      "grid_kind": "exp_log",
+      "k_max": 5.0
+    },
+    {
+      "test_id": 5,
+      "passed": true,
+      "raw_minimum": 0.0,
+      "correction_mass": -0.0,
+      "saved_minimum": 0.0,
+      "N": 5000,
+      "grid_kind": "exp_log",
+      "k_max": 5.0
+    },
+    {
+      "test_id": 6,
+      "passed": true,
+      "top_node_mass": 0.0,
+      "N": 5000,
+      "grid_kind": "exp_log",
+      "k_max": 5.0
+    },
+    {
+      "test_id": 7,
+      "passed": true,
+      "shape": [
+        10000,
+        10000
+      ],
+      "representation": "CSR",
+      "minimum_entry": 0.0,
+      "row_sum_error": 0.0,
+      "policy_entry_error": 0.0,
+      "N": 5000,
+      "grid_kind": "exp_log",
+      "k_max": 5.0
+    },
+    {
+      "test_id": 8,
+      "passed": true,
+      "stationarity_residual": 8.520129046729608e-13,
+      "shock_marginals": [
+        0.49999999999999994,
+        0.49999999999999994
+      ],
+      "shock_marginal_error": 5.551115123125783e-17,
+      "N": 5000,
+      "grid_kind": "exp_log",
+      "k_max": 5.0
+    },
+    {
+      "test_id": 9,
+      "passed": true,
+      "method": "modified_howard",
+      "exit_metric": 8.083146929090762e-09,
+      "metric_difference": 0.0,
+      "outer_passes": 19,
+      "updates": 18,
+      "inner_steps": 360,
+      "converged": true,
+      "N": 5000,
+      "grid_kind": "exp_log",
+      "k_max": 5.0
+    },
+    {
+      "test_id": 10,
+      "passed": true,
+      "scalar_checks": [
+        {
+          "state": [
+            0,
+            0
+          ],
+          "residual": 0.11369074885702579,
+          "difference": 0.0
+        },
+        {
+          "state": [
+            50,
+            1
+          ],
+          "residual": 1.6211754387041033e-05,
+          "difference": 0.0
+        },
+        {
+          "state": [
+            99,
+            0
+          ],
+          "residual": 0.07018649672264421,
+          "difference": 0.0
+        }
+      ],
+      "summary_differences": {
+        "maximum": 0.0,
+        "mean": 0.0,
+        "weighted_mean": 0.0,
+        "weighted_maximum": 0.0,
+        "supported_maximum": 0.0,
+        "slack_mass": 0.0,
+        "slack_count": 0.0,
+        "upper_choice_count": 0.0
+      },
+      "expected_statistics": {
+        "maximum": 0.0011845562735254278,
+        "mean": 0.0002230180690106586,
+        "weighted_mean": 0.00015590713519704735,
+        "weighted_maximum": 6.444445569254186e-06,
+        "supported_maximum": 0.0009660448115436093,
+        "slack_mass": 0.9122560383323024,
+        "slack_count": 9730,
+        "upper_choice_count": 0
+      },
+      "N": 5000,
+      "grid_kind": "exp_log",
+      "k_max": 5.0
+    }
+  ]
+}
