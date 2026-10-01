@@ -1,0 +1,7 @@
+## Stage-2 validation solvers (N=100, uniform [0,20])
+
+| Method | Passes | Updates | Inner steps | Seconds | Exit metric | Status |
+| --- | --- | --- | --- | --- | --- | --- |
+| vfi | 379 | 378 | 0 | 0.013540 | 9.72104602706e-09 | converged |
+| howard | 18 | 17 | 0 | 0.005993 | 1.84862340447e-16 | converged |
+| modified_howard | 19 | 18 | 360 | 0.002994 | 9.37659630034e-09 | converged |

@@ -1,0 +1,59 @@
+{
+  "settings": {
+    "beta": 0.96,
+    "sigma": 1.5,
+    "labor": 1.0,
+    "k_min": 0.0,
+    "z": 1.0,
+    "alpha": 0.36,
+    "delta": 0.1,
+    "K0": 5.0,
+    "efficiency": [
+      0.8,
+      1.2
+    ],
+    "P": [
+      [
+        0.5,
+        0.5
+      ],
+      [
+        0.5,
+        0.5
+      ]
+    ],
+    "shock_stationary": [
+      0.5,
+      0.5
+    ],
+    "seed": 0,
+    "N": 100,
+    "k_max": 20.0,
+    "grid_kind": "uniform",
+    "L": 1.0,
+    "w": 1.1423762763050482,
+    "r": 0.028517331084317893,
+    "utility_seconds": 0.00048483299906365573,
+    "dtype": "float64",
+    "stack_order": "F"
+  },
+  "method": "vfi",
+  "tolerance": 1e-08,
+  "outer_pass_cap": 10000,
+  "outer_passes": 379,
+  "updates": 378,
+  "inner_steps": 0,
+  "seconds": 0.01353983299486572,
+  "exit_metric": 9.721046027058214e-09,
+  "converged": true,
+  "status": "converged",
+  "modified_howard_steps_per_update": 20,
+  "gradient_step": 0.0005,
+  "adam_learning_rate": 0.1,
+  "adam_moment_decay": [
+    0.9,
+    0.999
+  ],
+  "adam_epsilon": 1e-08,
+  "initial_value": "zero"
+}
